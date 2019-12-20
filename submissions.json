@@ -14,6 +14,21 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF67267267": {
+    "contest_id": 447,
+    "language": "GNU C++14",
+    "path": "codeforces/447/C.cpp",
+    "problem_index": "C",
+    "problem_name": "DZY Loves Sequences",
+    "problem_url": "https://codeforces.com/contest/447/problem/C",
+    "submission_id": "CF67267267",
+    "submission_url": "https://codeforces.com/contest/447/submission/67267267",
+    "tags": [
+      "dp",
+      "*1600"
+    ],
+    "timestamp": "Dec/20/2019 12:12"
+  },
   "CF67333219": {
     "contest_id": 1269,
     "language": "GNU C++14",
