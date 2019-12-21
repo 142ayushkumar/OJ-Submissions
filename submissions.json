@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF67340415": {
+    "contest_id": 1269,
+    "language": "GNU C++14",
+    "path": "codeforces/1269/B.cpp",
+    "problem_index": "B",
+    "problem_name": "Modulo Equality",
+    "problem_url": "https://codeforces.com/contest/1269/problem/B",
+    "submission_id": "CF67340415",
+    "submission_url": "https://codeforces.com/contest/1269/submission/67340415",
+    "tags": [
+      "brute force",
+      "sortings",
+      "*1500"
+    ],
+    "timestamp": "Dec/21/2019 16:59"
+  },
   "CF67371274": {
     "contest_id": 1269,
     "language": "GNU C++14",
