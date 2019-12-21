@@ -39,8 +39,7 @@ int32_t main()
     {
         if(v[i]%2) odd.pb(i);
     }
-    // note that if odd heights are separated by odd distances we can use both
-    // odd squares
+
     int e = 0, o = 0, m = odd.size();
     for(int i=0;i<m;i++)
     {
