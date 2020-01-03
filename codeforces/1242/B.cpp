@@ -38,13 +38,12 @@ void dfs(int node)
         // checking all not visited nodes
         if(tree[node].find(*it) == tree[node].end())
         {
-            int y = *it;
-            not_vis.erase(y);
-            dfs(y);
-            it = not_vis.upper_bound(y);
+            call.push_back(*it);
+            it = not_vis.erase(it);
         }
         else it++;
     }
+    for(int i:call) dfs(i);
 }
 
     
