@@ -1,9 +1,3 @@
-/*
- * While searching if we get an edge (a, b)
- * if edge has weight 0 then that node belongs to same component
- * else we remove one edge
- * at one step either one edge removal or one node removal takes place
- */
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -47,7 +41,6 @@ void dfs(int node)
 }
 
     
-
 
 int32_t main()
 {
