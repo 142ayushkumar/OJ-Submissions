@@ -36,14 +36,12 @@ void dfs(int node, int& curr_num)
     {
         if(graph[node].find(*it) == graph[node].end())
         {
-            int y = *it;
+            call.push_back(*it);
             it = not_visited.erase(it);
-            dfs(y, curr_num);
-            it = not_visited.upper_bound(y);
-
         }
         else it++;
     }
+    for(int i:call) dfs(i, curr_num);
     if(icurr_num == 0) 
     {
         sz_connected.push_back(curr_num);
