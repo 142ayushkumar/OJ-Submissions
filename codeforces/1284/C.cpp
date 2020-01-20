@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-
+ 
 using namespace std;
-
+ 
 const double PI = 3.141592653589;
 #define fastio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
 #define pb push_back
@@ -20,20 +20,14 @@ template <class S, class T>ostream& operator <<(ostream& os, const map<S, T>& p)
 template <class T> void prc(T a, T b) {cerr << "["; for (T i = a; i != b; ++i) {if (i != a) cerr << ", "; cerr << *i;} cerr << "]\n";}
 // Use pr(a,b,c,d,e) or cerr<<anything or prc(v.begin(),v.end()) or prc(v,v+n)
 //  
-int m;
-int mul(int a, int b)
-{
-    int z = a*b;
-    if(z >= m) z %= m;
-    return z;
-}
-
+ 
+ 
 int32_t main()
 {
     fastio;
     //freopen("file.in", "r", stdin);
     //freopen("file.out", "w", stdout);
-    int n;
+    int n, m;
     cin >> n >> m;
     vector<int> fact(n+1);
     fact[0] = 1;
@@ -45,12 +39,10 @@ int32_t main()
     int ans = 0;
     for(int i=1;i<=n;i++)
     {
-        ans += mul(mul(n-i+1, fact[n-i+1]), fact[i]);
-        //ans += ((((n-i+1)*(fact[n-i+1]))%m)*fact[i])%m;
+        ans += ((((n-i+1)*(fact[n-i+1]))%m)*fact[i])%m;
         if(ans >= m) ans %= m;
     }
     cout << ans << "\n";
-
+ 
     return 0;
 }
-
