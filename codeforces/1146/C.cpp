@@ -21,6 +21,17 @@ template <class T> void prc(T a, T b) {cerr << "["; for (T i = a; i != b; ++i) {
 // Use pr(a,b,c,d,e) or cerr<<anything or prc(v.begin(),v.end()) or prc(v,v+n)
 //  
 
+void f(int l, int r, int p, int q)
+{
+	cout << r-l+1 << " " << q-p+1 << " ";
+	for(int i=l;i<=r;i++) cout << i << " ";
+	for(int i=p;i<=q;i++) cout << i << " ";
+	cout << "\n";
+	cout.flush();
+}
+
+
+
 
 int32_t main()
 {
@@ -31,29 +42,53 @@ int32_t main()
     cin >> t;
     while(t--)
     {
-        int n;
+        int n, ans = 0;
         cin >> n;
-        int ans = 0;
-        for(int i=0;i<9;i++)
+        vector<pair<int, int>> a, b, c, d;
+        a.pb({1, n/2});
+        b.pb({n/2+1, n});
+        for(int i=1;i<10;i++)
         {
-            vector<int> a, b;
-            for(int j=1;j<=n;j++)
-            {
-                if(j & (1<<i))
-                    a.pb(j);
-                else b.pb(j);
-            }
-            if(a.size() == 0 || b.size() == 0) continue;
-            cout << a.size() << " " << b.size() << " ";
-            for(int j:a) cout << j << " ";
-            for(int j:b) cout << j << " ";
+            int sza=0, szb = 0;
+            for(auto j:a)
+                sza += j.second - j.first + 1;
+            for(auto j:b)
+                szb += j.second - j.first + 1;
+            if(sza == 0 || szb == 0) break;
+            cout << sza << " " << szb;
+            for(auto j: a)
+                for(int k=j.first;k<=j.second;k++)
+                    cout << " " << k;
+            for(auto j:b)
+                for(int k=j.first;k<=j.second;k++)
+                    cout << " " << k;
+            cout << "\n";
             cout.flush();
             int temp;
-            cin >>  temp;
+            cin >> temp;
             ans = max(ans, temp);
+            c.clear();
+            d.clear();
+            for(auto j:a)
+            {
+                int mid = (j.first + j.second)/2;
+                c.pb({j.first, mid});
+                d.pb({mid+1, j.second});
+            }
+            for(auto j:b)
+            {
+                int mid = (j.first + j.second)/2;
+                c.pb({j.first, mid});
+                d.pb({mid+1, j.second});
+            }
+            swap(a, c);
+            swap(b, d);
+                
         }
         cout << "-1 " << ans << "\n";
         cout.flush();
+
+
     }
     return 0;
 }
