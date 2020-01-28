@@ -14,6 +14,23 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF69691057": {
+    "contest_id": 1251,
+    "language": "GNU C++14",
+    "path": "codeforces/1251/D.cpp",
+    "problem_index": "D",
+    "problem_name": "Salary Changing",
+    "problem_url": "https://codeforces.com/contest/1251/problem/D",
+    "submission_id": "CF69691057",
+    "submission_url": "https://codeforces.com/contest/1251/submission/69691057",
+    "tags": [
+      "binary search",
+      "greedy",
+      "sortings",
+      "*1900"
+    ],
+    "timestamp": "Jan/29/2020 00:06"
+  },
   "CF69725305": {
     "contest_id": 863,
     "language": "GNU C++14",
