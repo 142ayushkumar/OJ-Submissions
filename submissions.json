@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF69725305": {
+    "contest_id": 863,
+    "language": "GNU C++14",
+    "path": "codeforces/863/D.cpp",
+    "problem_index": "D",
+    "problem_name": "Yet Another Array Queries Problem",
+    "problem_url": "https://codeforces.com/contest/863/problem/D",
+    "submission_id": "CF69725305",
+    "submission_url": "https://codeforces.com/contest/863/submission/69725305",
+    "tags": [
+      "data structures",
+      "implementation",
+      "*1800"
+    ],
+    "timestamp": "Jan/29/2020 17:34"
+  },
   "CF69783462": {
     "contest_id": 792,
     "language": "GNU C++14",
