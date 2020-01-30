@@ -14,6 +14,25 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF69826737": {
+    "contest_id": 1228,
+    "language": "GNU C++14",
+    "path": "codeforces/1228/D.cpp",
+    "problem_index": "D",
+    "problem_name": "Complete Tripartite",
+    "problem_url": "https://codeforces.com/contest/1228/problem/D",
+    "submission_id": "CF69826737",
+    "submission_url": "https://codeforces.com/contest/1228/submission/69826737",
+    "tags": [
+      "brute force",
+      "constructive algorithms",
+      "graphs",
+      "hashing",
+      "implementation",
+      "*1900"
+    ],
+    "timestamp": "Jan/30/2020 14:52"
+  },
   "CF69844713": {
     "contest_id": 863,
     "language": "GNU C++14",
