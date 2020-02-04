@@ -7,7 +7,6 @@ const double PI = 3.141592653589;
 #define pb push_back
 #define mp make_pair
 #define int long long
-#define ll long long
 #define all(c) (c).begin(),(c).end()
 #define M 1000000007
 #define INF LLONG_MAX
@@ -21,110 +20,129 @@ template <class S, class T>ostream& operator <<(ostream& os, const map<S, T>& p)
 template <class T> void prc(T a, T b) {cerr << "["; for (T i = a; i != b; ++i) {if (i != a) cerr << ", "; cerr << *i;} cerr << "]\n";}
 // Use pr(a,b,c,d,e) or cerr<<anything or prc(v.begin(),v.end()) or prc(v,v+n)
 //  
+const int N = 100000 + 1;
+const int LOGN = 17;
+int n;
+vector<int> tree[N], store[N];
+// use lca for finding distances between two vertices fast
+int lev[N];
+int dp[N][LOGN];
+map<int,int> pos;
 
-vector<vector<int>> level_order;
-vector<int> pos; // maps i with its level order index
 
-struct lca {
-    vector<vector<int>> &graph;
-    vector<int>& parents;
-    vector<vector<int>> par;
-    vector<int> depth;
-    int n, m;
-    int root;
-
-    void dfs(int cur, int prev = 0, int ht = 0) {
-        par[cur][0] = prev;
-        depth[cur] = ht;
-        pos[cur] = level_order[ht].size();
-        level_order[ht].pb(cur);
-        for(int u : graph[cur]) {
-            if(u != prev) {
-                dfs(u, cur, ht + 1);
-            }
-        }
-        return;
-    }
-
-    lca(vector<vector<int>> &_graph, vector<int>& _parents, int _root = 1) : graph(_graph), parents(_parents), root(_root) {
-        n = (int)graph.size();
-        m = (int)log2(n) + 2;
-        par.resize(n);
-        for(int i = 0; i < n; i++) {
-            par[i].resize(m);
-        }
-        depth.resize(n, 0);
-        for(int i:parents)
-            dfs(i, i);
-
-        for(int i = 1; i < m; i++) {
-            for(int j = 0; j < n; j++) {
-                par[j][i] = par[par[j][i - 1]][i - 1];
-            }
-        }
-    }
-
-    int get(int u, int v) {
-        if(depth[u] > depth[v]) {
-            swap(u, v);
-        }
-        int diff = depth[v] - depth[u];
-        for(int i = m - 1; i >= 0; i--) {
-            if((diff >> i) & 1) {
-                v = par[v][i];
-            }
-        }
-        if(u == v) {
-            return u;
-        }
-        for(int i = m - 1; i >= 0; i--) {
-            if(par[u][i] != par[v][i]) {
-                u = par[u][i];
-                v = par[v][i];
-            }
-        }
-        return par[u][0];
-    }
-    
-    int lift(int u, int v)
+void dfs(int node, int parent)
+{
+    dp[node][0] = parent;
+    pos[node] = store[lev[node]].size();
+    store[lev[node]].pb(node);
+	int count = 0;
+    for(int i:tree[node])
     {
-        // lift u by b levels
-        for(int i=m-1;i>=0;i--)
-        {
-            if((v >> i)& 1)
-            {
-                u = par[u][i];
-            }
-        }
-        return u;
+        if(i == parent) continue;
+        count++;	
+        lev[i] = lev[node] + 1;
+        dfs(i, node);
     }
-};
+}
 
+void fill()
+{
+    for(int j=1;j<LOGN;j++)
+    {
+        for(int i=1;i<=n;i++)
+        {
+            dp[i][j] = dp[dp[i][j-1]][j-1];
+        }
+    }
+}
+
+int lca(int a, int b)
+{
+    if(lev[a] > lev[b]) swap(a, b);
+    int diff = lev[b] - lev[a];
+    // go up from b with this diff
+    int curr = 0; 
+    while(diff > 0)
+    {
+        int z = (1<<curr);
+        if(diff&z)
+        {
+            diff -= z;
+            b = dp[b][curr];
+        }
+        curr++;
+    }
+    if(a == b) return a;
+    for(int i=LOGN-1;i>=0;i--)
+    {
+        int x = dp[a][i], y = dp[b][i];
+        if(x != y)
+        {
+            a = x;
+            b = y;
+        }
+    }
+    // now go 1 up
+    return dp[a][0];
+}
+
+int lift(int a, int b)
+{
+    // lift a, b level
+    for(int i=LOGN-1;i>=0;i--)
+    {
+        if(b&(1<<i))
+        {
+            a = dp[a][i];
+            b ^= (1<<i);
+        }
+    }
+    return a;
+}
+int dist(int a, int b)
+{
+    return lev[a] + lev[b] - 2*lev[lca(a, b)];
+}
+
+int ipow(int base, int exp)
+{
+    int ret = 1;
+    while(exp)
+    {
+        if(exp&1)
+            ret *= base;
+        base *= base;
+        exp >>= 1;
+    }
+    return  ret;
+}
+
+    
 int32_t main()
 {
     fastio;
     //freopen("file.in", "r", stdin);
     //freopen("file.out", "w", stdout);
-	int n;
     cin >> n;
-    vector<vector<int>> tree;
     vector<int> parents;
-    pos.resize(n+1);
-    tree.resize(n+1);
-    level_order.resize(n+1);
     for(int i=1;i<=n;i++)
     {
-        int t;
-        cin >> t;
-        if(t == 0)
+        int tn;
+        cin >> tn;
+        if(tn == 0)
             parents.pb(i);
         else
         {
-            tree[i].pb(t);
-            tree[t].pb(i);
+            tree[i].pb(tn);
+            tree[tn].pb(i);
         }
     }
-    struct lca lca_(tree, parents);
+    // rooting tree
+    for(auto parent: parents)
+    {
+        dfs(parent, parent);
+    }
+    fill();
     int m;
     cin >> m;
     vector<int> ans(m, -1);
@@ -132,42 +150,54 @@ int32_t main()
     {
         int a, b;
         cin >> a >> b;
-        int parent = lca_.lift(a, b), child = lca_.lift(a, b-1);
-        if(parent == child) ans[i] = 0;
+        // lift a -> b lev 
+        int parent = lift(a, b);
+        int temp_parent = lift(a, b-1);
+        if(parent == temp_parent)
+        {
+            ans[i] = 0;
+        }
         else
         {
-            int idx = pos[a], depth = lca_.depth[a], curr = 0;
-            // now binary search left and right in the level_order vector to get
-            // the ans
-            int l = idx, r = (int)level_order[depth].size() - 1;
+            int A = pos[a];
+
+            int l = 0, r = store[lev[a]].size() - 1 - A;        
+            int L = A, R = A;
             while(l < r)
             {
-                int mid = (l + r + 1)/2;
-                if(lca_.lift(level_order[depth][mid], b) != parent)
+                int mid =  (l + r + 1)/2;
+                if(lift(store[lev[a]][mid + A], b) != parent)
+                {
                     r = mid-1;
-                else 
+                }
+                else
                     l = mid;
+
             }
-            curr += l - idx;
-            l = 0, r = idx;
+            R = A+l;
+            l = 0;
+            r = A;
             while(l < r)
             {
                 int mid = (l + r)/2;
-                if(lca_.lift(level_order[depth][mid], b) != parent)
+                if(lift(store[lev[a]][mid], b) != parent)
+                {
                     l = mid+1;
-                else 
+                }
+                else
                     r = mid;
             }
-            curr += idx - l;
-            ans[i] = curr;
+            L = l;
+            ans[i] = R - L;
         }
     }
     for(int i=0;i<m;i++)
+    {
         cout << ans[i] << " ";
+    }
     cout << "\n";
-
-
-        
     return 0;
 }
+
+
 
