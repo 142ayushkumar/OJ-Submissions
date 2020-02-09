@@ -76,6 +76,7 @@ int32_t main()
             ver_max_deg = i;
         }
     }
+    vector<bool> vis(n+1, false);
     init();
     for(int i:graph[ver_max_deg])
     {
