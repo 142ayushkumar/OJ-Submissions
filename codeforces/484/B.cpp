@@ -27,40 +27,31 @@ int32_t main()
     fastio;
     //freopen("file.in", "r", stdin);
     //freopen("file.out", "w", stdout);
-    
     int n;
     cin >> n;
-    vector<int> v(2e6 + 5, 0);
+    set<int> s;
     for(int i=0;i<n;i++)
     {
         int temp;
         cin >> temp;
-        v[temp] = 1;
+        s.insert(temp);
     }
-    vector<int> just_smaller(2e6 + 5, 0);
-    int curr = 0;
-    for(int i=0;i<(int)2e6 + 5; i++)
-    {
-        if(v[i])
-        {
-            just_smaller[i] = curr;
-            curr = i;
-        }
-        else just_smaller[i] = curr;
-    }
+    vector<int> v(all(s));
+    sort(all(v));
     int ans = 0;
-    for(int i=1;i<(int)1e6 + 5;i++)
+    n = v.size();
+    for(int i=0;i<n;i++)
     {
-        if(v[i])
+        for(int j=2*v[i];;j+=v[i])
         {
-            for(int j=2*i;j < (int)2e6 + 5; j+=i)
-            {
-                ans = max(ans, just_smaller[j]%i);
-            }
+            int x = lower_bound(v.begin()+i, v.end(), j) - v.begin();
+            x--;
+            ans = max(ans, v[x]%v[i]);
+            if(j > v[n-1]) break;
+        
         }
     }
     cout << ans << "\n";
-
     return 0;
 }
 
