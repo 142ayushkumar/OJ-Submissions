@@ -14,6 +14,21 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF75359234": {
+    "contest_id": 1330,
+    "language": "GNU C++14",
+    "path": "codeforces/1330/A.cpp",
+    "problem_index": "A",
+    "problem_name": "Dreamoon and Ranking Collection",
+    "problem_url": "https://codeforces.com/contest/1330/problem/A",
+    "submission_id": "CF75359234",
+    "submission_url": "https://codeforces.com/contest/1330/submission/75359234",
+    "tags": [
+      "implementation",
+      "*900"
+    ],
+    "timestamp": "Apr/03/2020 20:16"
+  },
   "CF75377355": {
     "contest_id": 1330,
     "language": "GNU C++14",
