@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF75947079": {
+    "contest_id": 1333,
+    "language": "GNU C++14",
+    "path": "codeforces/1333/B.cpp",
+    "problem_index": "B",
+    "problem_name": "Kind Anton",
+    "problem_url": "https://codeforces.com/contest/1333/problem/B",
+    "submission_id": "CF75947079",
+    "submission_url": "https://codeforces.com/contest/1333/submission/75947079",
+    "tags": [
+      "greedy",
+      "implementation",
+      "*1100"
+    ],
+    "timestamp": "Apr/09/2020 09:08"
+  },
   "CF75948442": {
     "contest_id": 1333,
     "language": "GNU C++14",
