@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF77672503": {
+    "contest_id": 1343,
+    "language": "Java 11",
+    "path": "codeforces/1343/A.java",
+    "problem_index": "A",
+    "problem_name": "Candies",
+    "problem_url": "https://codeforces.com/contest/1343/problem/A",
+    "submission_id": "CF77672503",
+    "submission_url": "https://codeforces.com/contest/1343/submission/77672503",
+    "tags": [
+      "brute force",
+      "math",
+      "*900"
+    ],
+    "timestamp": "Apr/22/2020 21:50"
+  },
   "CF77678349": {
     "contest_id": 1343,
     "language": "Java 11",
