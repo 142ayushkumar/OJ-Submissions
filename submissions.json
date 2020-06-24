@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF84863204": {
+    "contest_id": 990,
+    "language": "GNU C++17",
+    "path": "codeforces/990/E.cpp",
+    "problem_index": "E",
+    "problem_name": "Post Lamps",
+    "problem_url": "https://codeforces.com/contest/990/problem/E",
+    "submission_id": "CF84863204",
+    "submission_url": "https://codeforces.com/contest/990/submission/84863204",
+    "tags": [
+      "brute force",
+      "greedy",
+      "*2100"
+    ],
+    "timestamp": "Jun/24/2020 12:45"
+  },
   "CF85085600": {
     "contest_id": 909,
     "language": "GNU C++17",
