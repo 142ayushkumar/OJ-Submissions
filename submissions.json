@@ -14,6 +14,22 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF85258374": {
+    "contest_id": 621,
+    "language": "GNU C++17",
+    "path": "codeforces/621/E.cpp",
+    "problem_index": "E",
+    "problem_name": "Wet Shark and Blocks",
+    "problem_url": "https://codeforces.com/contest/621/problem/E",
+    "submission_id": "CF85258374",
+    "submission_url": "https://codeforces.com/contest/621/submission/85258374",
+    "tags": [
+      "dp",
+      "matrices",
+      "*2000"
+    ],
+    "timestamp": "Jun/28/2020 10:39"
+  },
   "CF85424720": {
     "contest_id": 712,
     "language": "GNU C++17",
