@@ -14,6 +14,23 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF85424720": {
+    "contest_id": 712,
+    "language": "GNU C++17",
+    "path": "codeforces/712/D.cpp",
+    "problem_index": "D",
+    "problem_name": "Memory and Scores",
+    "problem_url": "https://codeforces.com/contest/712/problem/D",
+    "submission_id": "CF85424720",
+    "submission_url": "https://codeforces.com/contest/712/submission/85424720",
+    "tags": [
+      "combinatorics",
+      "dp",
+      "math",
+      "*2200"
+    ],
+    "timestamp": "Jun/29/2020 11:23"
+  },
   "CF85463085": {
     "contest_id": 359,
     "language": "GNU C++17",
