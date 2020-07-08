@@ -29,7 +29,7 @@ int32_t main()
     fastio;
     //freopen("file.in", "r", stdin);
     //freopen("file.out", "w", stdout);
-    cout << fixed << setprecision(15);
+    cout << fixed << setprecision(12); 
     int r, s, p;
     cin >> r >> s >> p;
     double dp[r+1][s+1][p+1];
@@ -41,27 +41,23 @@ int32_t main()
         {
             for(int k=p;k>=0;k--)
             {
-                double same = 0;
-                int den = (i+j+k)*(i+j+k-1)/2.0;
-                if(!den) continue;
-                if(i) same += ((double)i*(i-1)/2)/den;
-                if(j) same += ((double)j*(j-1)/2)/den;
-                if(k) same += ((double)k*(k-1)/2)/den;
+                if(i+j+k <= 1) continue;
+                int den = i*j + j*k + k*i;
             
                 if(i and j)
                 {
                     double tmp = ((double)i*j)/den;
-                    dp[i][j-1][k] += dp[i][j][k] * tmp/(1-same); 
+                    dp[i][j-1][k] += dp[i][j][k] * tmp; 
                 }
                 if(j and k)
                 {
                     double tmp = ((double)j*k)/den;
-                    dp[i][j][k-1] += dp[i][j][k] * tmp/(1-same);
+                    dp[i][j][k-1] += dp[i][j][k] * tmp;
                 }
                 if(k and i)
                 {
                     double tmp = ((double)k*i)/den;
-                    dp[i-1][j][k] += dp[i][j][k] * tmp/(1-same);
+                    dp[i-1][j][k] += dp[i][j][k] * tmp;
                 }
             }
         }
@@ -70,7 +66,6 @@ int32_t main()
     for(int i=1;i<=r;i++) a += dp[i][0][0];
     for(int i=1;i<=s;i++) b += dp[0][i][0];
     for(int i=1;i<=p;i++) c += dp[0][0][i];
-
 
     cout << a << " " << b << " " << c << "\n";
 
