@@ -14,6 +14,24 @@
     ],
     "timestamp": "Dec/22/2020 14:10"
   },
+  "CF86238814": {
+    "contest_id": 1088,
+    "language": "GNU C++17",
+    "path": "codeforces/1088/D.cpp",
+    "problem_index": "D",
+    "problem_name": "Ehab and another another xor problem",
+    "problem_url": "https://codeforces.com/contest/1088/problem/D",
+    "submission_id": "CF86238814",
+    "submission_url": "https://codeforces.com/contest/1088/submission/86238814",
+    "tags": [
+      "bitmasks",
+      "constructive algorithms",
+      "implementation",
+      "interactive",
+      "*2000"
+    ],
+    "timestamp": "Jul/08/2020 07:54"
+  },
   "CF86247183": {
     "contest_id": 459,
     "language": "GNU C++17",
